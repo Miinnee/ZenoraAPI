@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
 group = 'fr.mine'
@@ -45,5 +46,22 @@ processResources {
     filteringCharset 'UTF-8'
     filesMatching('plugin.yml') {
         expand props
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            groupId = 'fr.mine'
+            artifactId = 'ZenoraAPI' // Remplacez par l'ID de votre artefact
+            version = '0.0.1-BETA'
+        }
+    }
+    repositories {
+        maven {
+            name = "ZenoraAPI"
+            url = uri("https://github.com/Mineplex3k/ZenoraAPI.git") // Remplacez par l'URL de votre dépôt Maven
+        }
     }
 }
