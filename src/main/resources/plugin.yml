@@ -1,0 +1,4 @@
+name: ZenoraAPI
+version: '${version}'
+main: fr.mine.zenoraapi.ZenoraAPI
+api-version: '1.20'
